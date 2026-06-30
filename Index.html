@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's For Dinner</title>
+
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/Index.css">
+  <link rel="stylesheet" href="CSS/Media.css">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="brand-text">
+          <h1>What's For Dinner</h1>
+          <p>Your daily meal inspiration</p>
+        </div>
+      </div>
+
+      <div class="nav-icons">
+        <button><i class="fa-solid fa-bookmark"></i></button>
+        <button><i class="fa-solid fa-clock-rotate-left"></i></button>
+        <button><i class="fa-solid fa-gear"></i></button>
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Profile" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipe-card">
+
+      <div class="recipe-left">
+        <img id="recipe-image"
+          src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c987e47793-062e728ad4ccc343589c.png"
+          alt="recipe" />
+
+        <div class="rating-badge">
+          <i class="fa-solid fa-star"></i>
+          <span class="rating-num" id="rating-average">4.8</span>
+          <span class="rating-count" id="rating-quantity">(234 reviews)</span>
+        </div>
+
+        <div class="meta-overlay">
+          <div class="meta-item">
+            <i class="fa-solid fa-clock icon-orange"></i>
+            <span class="meta-label">Prep Time</span>
+            <span class="meta-value" id="prep-time-display">15 min</span>
+          </div>
+          <div class="meta-item">
+            <i class="fa-solid fa-fire-burner icon-red"></i>
+            <span class="meta-label">Cook Time</span>
+            <span class="meta-value" id="cook-time-display">20 min</span>
+          </div>
+          <div class="meta-item">
+            <i class="fa-solid fa-users icon-blue"></i>
+            <span class="meta-label">Servings</span>
+            <span class="meta-value" id="servings-display">4 people</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-right">
+
+        <div class="recipe-header">
+          <div>
+            <div class="recipe-badges">
+              <span class="badge badge-green" id="difficulty-badge">Easy</span>
+              <span class="badge badge-blue" id="category-badge">Italian</span>
+            </div>
+            <h3 class="recipe-title" id="recipe-name">Creamy Spaghetti Carbonara</h3>
+            <p class="recipe-desc" id="recipe-description">
+              A classic Italian pasta dish with eggs, cheese, and pancetta
+            </p>
+          </div>
+          <div class="action-buttons">
+            <button class="action-btn"><i class="fa-solid fa-bookmark"></i></button>
+            <button class="action-btn"><i class="fa-solid fa-share-nodes"></i></button>
+          </div>
+        </div>
+
+        <div class="warning-banner" id="time-warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <div>
+            <span class="warn-title">Extended Preparation Time</span>
+            <span class="warn-text">This recipe requires more than 45 minutes to prepare. Plan accordingly!</span>
+          </div>
+        </div>
+
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="ingredients">
+            <i class="fa-solid fa-list-check"></i> Ingredients
+          </button>
+          <button class="tab-btn" data-tab="instructions">
+            <i class="fa-solid fa-book-open"></i> Instructions
+          </button>
+          <button class="tab-btn" data-tab="nutrition">
+            <i class="fa-solid fa-chart-pie"></i> Nutrition
+          </button>
+          <button class="tab-btn" data-tab="tips">
+            <i class="fa-solid fa-lightbulb"></i> Chef's Tips
+          </button>
+        </div>
+
+        <div class="tab-panel active" id="ingredients-tab">
+          <div class="ingredients-bg">
+            <ul class="ingredients-list" id="ingredients-list"></ul>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="instructions-tab">
+          <div class="steps-list" id="instructions-list"></div>
+        </div>
+
+        <div class="tab-panel" id="nutrition-tab">
+          <div class="nutrition-grid">
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon orange"><i class="fa-solid fa-fire"></i></div>
+                <span class="nut-label">Calories</span>
+              </div>
+              <span class="nut-value" id="calories-value">520 kcal</span>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon blue"><i class="fa-solid fa-dumbbell"></i></div>
+                <span class="nut-label">Protein</span>
+              </div>
+              <span class="nut-value" id="protein-value">28g</span>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon yellow"><i class="fa-solid fa-wheat-awn"></i></div>
+                <span class="nut-label">Carbohydrates</span>
+              </div>
+              <span class="nut-value" id="carbs-value">62g</span>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon red"><i class="fa-solid fa-droplet"></i></div>
+                <span class="nut-label">Fat</span>
+              </div>
+              <span class="nut-value" id="fat-value">18g</span>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon green"><i class="fa-solid fa-seedling"></i></div>
+                <span class="nut-label">Fiber</span>
+              </div>
+              <span class="nut-value" id="fiber-value">3g</span>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-left">
+                <div class="nut-icon pink"><i class="fa-solid fa-cube"></i></div>
+                <span class="nut-label">Sodium</span>
+              </div>
+              <span class="nut-value" id="sodium-value">680mg</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tips-tab">
+          <div class="tips-list" id="tips-list"></div>
+        </div>
+
+        <div class="bottom-bar">
+          <button class="btn-try" id="try-another-btn">
+            <i class="fa-solid fa-rotate"></i>
+            Try Another Recipe
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="JS/bootstrap.bundle.min.js"></script>
+  <script src="JS/Index.js"></script>
+</body>
+
+</html>
