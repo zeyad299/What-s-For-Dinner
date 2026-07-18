@@ -4,187 +4,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What's For Dinner</title>
+  <title>ContactHub - Smart Contact Manager</title>
 
-  <link rel="stylesheet" href="CSS/all.min.css">
-  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/Index.css">
-  <link rel="stylesheet" href="CSS/Media.css">
-
+  <link rel="stylesheet" href="CSS/all.min.css">
 </head>
 
 <body>
 
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="fa-solid fa-utensils"></i>
-        </div>
-        <div class="brand-text">
-          <h1>What's For Dinner</h1>
-          <p>Your daily meal inspiration</p>
-        </div>
-      </div>
+  <div class="bg-pattern">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
-      <div class="nav-icons">
-        <button><i class="fa-solid fa-bookmark"></i></button>
-        <button><i class="fa-solid fa-clock-rotate-left"></i></button>
-        <button><i class="fa-solid fa-gear"></i></button>
-        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Profile" />
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-row">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-address-book"></i></div>
+          <div>
+            <h1 class="logo-title">Contact<span>Hub</span></h1>
+            <p class="logo-subtitle">Smart Contact Manager</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="addContactBtn" class="btn-add">
+            <i class="fa-solid fa-plus" style="font-size:.75rem;"></i>
+            <span class="text-add-full">Add Contact</span>
+            <span class="text-add-short">Add</span>
+          </button>
+          <button class="icon-btn-header"><i class="fa-solid fa-bell"></i></button>
+          <button class="icon-btn-header"><i class="fa-solid fa-gear"></i></button>
+          <div class="avatar-header"><img src="Images/avatar-4.jpg" alt="Avatar"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <div class="recipe-card">
+  <main class="main-content">
 
-      <div class="recipe-left">
-        <img id="recipe-image"
-          src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c987e47793-062e728ad4ccc343589c.png"
-          alt="recipe" />
-
-        <div class="rating-badge">
-          <i class="fa-solid fa-star"></i>
-          <span class="rating-num" id="rating-average">4.8</span>
-          <span class="rating-count" id="rating-quantity">(234 reviews)</span>
-        </div>
-
-        <div class="meta-overlay">
-          <div class="meta-item">
-            <i class="fa-solid fa-clock icon-orange"></i>
-            <span class="meta-label">Prep Time</span>
-            <span class="meta-value" id="prep-time-display">15 min</span>
-          </div>
-          <div class="meta-item">
-            <i class="fa-solid fa-fire-burner icon-red"></i>
-            <span class="meta-label">Cook Time</span>
-            <span class="meta-value" id="cook-time-display">20 min</span>
-          </div>
-          <div class="meta-item">
-            <i class="fa-solid fa-users icon-blue"></i>
-            <span class="meta-label">Servings</span>
-            <span class="meta-value" id="servings-display">4 people</span>
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-row">
+          <div class="stat-icon total"><i class="fa-solid fa-users"></i></div>
+          <div>
+            <p class="stat-label">Total</p>
+            <p id="totalCount" class="stat-num">0</p>
           </div>
         </div>
       </div>
-
-      <div class="recipe-right">
-
-        <div class="recipe-header">
+      <div class="stat-card">
+        <div class="stat-row">
+          <div class="stat-icon fav"><i class="fa-solid fa-star"></i></div>
           <div>
-            <div class="recipe-badges">
-              <span class="badge badge-green" id="difficulty-badge">Easy</span>
-              <span class="badge badge-blue" id="category-badge">Italian</span>
-            </div>
-            <h3 class="recipe-title" id="recipe-name">Creamy Spaghetti Carbonara</h3>
-            <p class="recipe-desc" id="recipe-description">
-              A classic Italian pasta dish with eggs, cheese, and pancetta
-            </p>
-          </div>
-          <div class="action-buttons">
-            <button class="action-btn"><i class="fa-solid fa-bookmark"></i></button>
-            <button class="action-btn"><i class="fa-solid fa-share-nodes"></i></button>
+            <p class="stat-label">Favorites</p>
+            <p id="favCount" class="stat-num">0</p>
           </div>
         </div>
-
-        <div class="warning-banner" id="time-warning">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <div>
-            <span class="warn-title">Extended Preparation Time</span>
-            <span class="warn-text">This recipe requires more than 45 minutes to prepare. Plan accordingly!</span>
-          </div>
-        </div>
-
-        <div class="tabs-nav">
-          <button class="tab-btn active" data-tab="ingredients">
-            <i class="fa-solid fa-list-check"></i> Ingredients
-          </button>
-          <button class="tab-btn" data-tab="instructions">
-            <i class="fa-solid fa-book-open"></i> Instructions
-          </button>
-          <button class="tab-btn" data-tab="nutrition">
-            <i class="fa-solid fa-chart-pie"></i> Nutrition
-          </button>
-          <button class="tab-btn" data-tab="tips">
-            <i class="fa-solid fa-lightbulb"></i> Chef's Tips
-          </button>
-        </div>
-
-        <div class="tab-panel active" id="ingredients-tab">
-          <div class="ingredients-bg">
-            <ul class="ingredients-list" id="ingredients-list"></ul>
-          </div>
-        </div>
-
-        <div class="tab-panel" id="instructions-tab">
-          <div class="steps-list" id="instructions-list"></div>
-        </div>
-
-        <div class="tab-panel" id="nutrition-tab">
-          <div class="nutrition-grid">
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon orange"><i class="fa-solid fa-fire"></i></div>
-                <span class="nut-label">Calories</span>
-              </div>
-              <span class="nut-value" id="calories-value">520 kcal</span>
-            </div>
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon blue"><i class="fa-solid fa-dumbbell"></i></div>
-                <span class="nut-label">Protein</span>
-              </div>
-              <span class="nut-value" id="protein-value">28g</span>
-            </div>
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon yellow"><i class="fa-solid fa-wheat-awn"></i></div>
-                <span class="nut-label">Carbohydrates</span>
-              </div>
-              <span class="nut-value" id="carbs-value">62g</span>
-            </div>
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon red"><i class="fa-solid fa-droplet"></i></div>
-                <span class="nut-label">Fat</span>
-              </div>
-              <span class="nut-value" id="fat-value">18g</span>
-            </div>
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon green"><i class="fa-solid fa-seedling"></i></div>
-                <span class="nut-label">Fiber</span>
-              </div>
-              <span class="nut-value" id="fiber-value">3g</span>
-            </div>
-            <div class="nutrition-item">
-              <div class="nutrition-left">
-                <div class="nut-icon pink"><i class="fa-solid fa-cube"></i></div>
-                <span class="nut-label">Sodium</span>
-              </div>
-              <span class="nut-value" id="sodium-value">680mg</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-panel" id="tips-tab">
-          <div class="tips-list" id="tips-list"></div>
-        </div>
-
-        <div class="bottom-bar">
-          <button class="btn-try" id="try-another-btn">
-            <i class="fa-solid fa-rotate"></i>
-            Try Another Recipe
-          </button>
-        </div>
-
       </div>
+      <div class="stat-card">
+        <div class="stat-row">
+          <div class="stat-icon emg"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div>
+            <p class="stat-label">Emergency</p>
+            <p id="emgCount" class="stat-num">0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-layout">
+      <div class="content-main">
+        <section class="contacts-header">
+          <div class="contacts-header-row">
+            <div>
+              <h2 class="contacts-title">All Contacts</h2>
+              <p id="contactsSubtitle" class="contacts-subtitle">Manage and organize your 0 contacts</p>
+            </div>
+          </div>
+
+          <div class="search-wrap">
+            <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input id="searchInput" type="text" class="search-input" placeholder="Search by name, phone, or email...">
+          </div>
+        </section>
+
+        <section>
+          <div id="contactsGrid" class="contacts-grid"></div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <section class="side-section">
+          <div class="side-header fav-header">
+            <div class="side-header-row">
+              <div class="side-icon fav"><i class="fa-solid fa-star"></i></div>
+              <div>
+                <h2 class="side-title">Favorites</h2>
+                <p class="side-subtitle">Quick access to starred contacts</p>
+              </div>
+            </div>
+          </div>
+          <div id="favoritesList" class="side-list"></div>
+        </section>
+
+        <section class="side-section">
+          <div class="side-header emg-header">
+            <div class="side-header-row">
+              <div class="side-icon emg"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <h2 class="side-title">Emergency</h2>
+                <p class="side-subtitle">Important contacts for urgent calls</p>
+              </div>
+            </div>
+          </div>
+          <div id="emergencyList" class="side-list"></div>
+        </section>
+      </aside>
+    </div>
+
+    <div class="mobile-sections">
+      <section class="side-section">
+        <div class="side-header-sm fav-header">
+          <div class="side-header-row">
+            <div class="side-icon-sm fav"><i class="fa-solid fa-star"></i></div>
+            <div>
+              <h2 class="side-title-sm">Favorites</h2>
+              <p class="side-subtitle-sm">Quick access</p>
+            </div>
+          </div>
+        </div>
+        <div id="favoritesListMobile" class="mobile-side-list"></div>
+      </section>
+
+      <section class="side-section">
+        <div class="side-header-sm emg-header">
+          <div class="side-header-row">
+            <div class="side-icon-sm emg"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div>
+              <h2 class="side-title-sm">Emergency</h2>
+              <p class="side-subtitle-sm">Urgent contacts</p>
+            </div>
+          </div>
+        </div>
+        <div id="emergencyListMobile" class="mobile-side-list"></div>
+      </section>
     </div>
   </main>
 
-  <script src="JS/bootstrap.bundle.min.js"></script>
+  <div id="contactModal" class="modal-overlay">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-center">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2 id="modalTitle" class="modal-title">Add New Contact</h2>
+          <button type="button" id="closeModalBtn" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <form id="contactForm" class="modal-form">
+          <div class="avatar-upload">
+            <div id="avatarPreview" class="avatar-circle avatar-xl avatar-blue">?</div>
+            <label class="upload-label">
+              <i class="fa-solid fa-camera"></i>
+              <span>Change Photo</span>
+              <input type="file" id="avatarInput" accept="image/*" class="hidden">
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label>Full Name <span class="required">*</span></label>
+            <input type="text" id="contactName" class="form-control" placeholder="Enter full name">
+            <p id="contactNameError" class="field-error">Name should contain only letters and spaces (2-50 characters)
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number <span class="required">*</span></label>
+            <input type="text" id="contactPhone" class="form-control" placeholder="e.g., 01012345678">
+            <p id="contactPhoneError" class="field-error">Please enter a valid Egyptian phone number</p>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="text" id="contactEmail" class="form-control" placeholder="name@example.com">
+            <p id="contactEmailError" class="field-error">Please enter a valid email address</p>
+          </div>
+
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" id="contactAddress" class="form-control" placeholder="Enter address">
+          </div>
+
+          <div class="form-group">
+            <label>Group</label>
+            <select id="contactGroup" class="form-control">
+              <option value="">Select a group</option>
+              <option value="family">Family</option>
+              <option value="friends">Friends</option>
+              <option value="work">Work</option>
+              <option value="school">School</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Notes</label>
+            <textarea id="contactNotes" class="form-control" rows="2"
+              placeholder="Add notes about this contact"></textarea>
+          </div>
+
+          <div class="checkbox-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="contactFavorite">
+              <span><i class="fa-solid fa-star" style="color:#fbbf24;"></i> Favorite</span>
+            </label>
+            <label class="checkbox-label emergency">
+              <input type="checkbox" id="contactEmergency">
+              <span><i class="fa-solid fa-heart-pulse" style="color:#f43f5e;"></i> Emergency</span>
+            </label>
+          </div>
+
+          <input type="hidden" id="contactId" value="">
+
+          <div class="form-actions">
+            <button type="button" id="cancelModalBtn" class="btn btn-cancel">Cancel</button>
+            <button type="submit" class="btn btn-save"><i class="fa-solid fa-check" style="margin-right:.4rem;"></i>Save
+              Contact</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="JS/Index.js"></script>
+  <script src="JS/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

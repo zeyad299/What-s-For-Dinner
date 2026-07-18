@@ -1,296 +1,531 @@
-var meals = [
-    {
-        name: "Creamy Spaghetti Carbonara",
-        description: "A classic Italian pasta dish with eggs, cheese, and pancetta",
-        cuisine: "Italian",
-        difficulty: "Easy",
-        prepTime: 15,
-        cookTime: 20,
-        servings: 4,
-        rating: 4.8,
-        reviews: 234,
-        image: "https://storage.googleapis.com/uxpilot-auth.appspot.com/c987e47793-062e728ad4ccc343589c.png",
-        ingredients: [
-            "400g spaghetti pasta",
-            "200g pancetta or guanciale, diced",
-            "4 large eggs + 2 egg yolks",
-            "100g Pecorino Romano, grated",
-            "100g Parmigiano-Reggiano, grated",
-            "Freshly ground black pepper",
-            "Salt for pasta water"
-        ],
-        steps: [
-            "Bring a large pot of salted water to a boil. Cook spaghetti until al dente, reserving 1 cup of pasta water before draining.",
-            "While pasta cooks, fry pancetta in a large skillet over medium heat until crispy, about 5-7 minutes. Remove from heat.",
-            "Whisk together eggs, yolks, and grated cheeses in a bowl. Season generously with black pepper.",
-            "Add drained pasta to the skillet with pancetta. Off the heat, pour the egg mixture over, tossing quickly and adding pasta water a splash at a time to create a silky sauce.",
-            "Serve immediately with extra cheese and black pepper on top."
-        ],
-        nutrition: { calories: "520 kcal", protein: "28g", carbs: "62g", fat: "18g", fiber: "3g", sodium: "680mg" },
-        tips: [
-            "Never add the eggs over direct heat — the residual heat from the pasta is enough to cook them into a creamy sauce.",
-            "Use freshly grated cheese rather than pre-packaged for a much smoother result.",
-            "Reserve more pasta water than you think you need; starch is your friend here."
-        ]
-    },
-    {
-        name: "Beef Kofta with Tahini",
-        description: "Juicy spiced ground beef skewers served with creamy tahini sauce and warm pita",
-        cuisine: "Middle Eastern",
-        difficulty: "Medium",
-        prepTime: 20,
-        cookTime: 15,
-        servings: 4,
-        rating: 4.7,
-        reviews: 189,
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80",
-        ingredients: [
-            "500g ground beef (20% fat)",
-            "1 onion, grated",
-            "3 garlic cloves, minced",
-            "2 tsp ground cumin",
-            "1 tsp ground coriander",
-            "1 tsp paprika",
-            "Half tsp cinnamon",
-            "Salt and pepper to taste",
-            "Fresh parsley, chopped",
-            "4 tbsp tahini",
-            "Juice of 1 lemon",
-            "Warm pita bread to serve"
-        ],
-        steps: [
-            "Combine ground beef, grated onion, garlic, and all spices in a bowl. Knead well for 2 minutes until the mixture holds together.",
-            "Divide into 8 equal portions and shape each around a skewer into a sausage shape about 12cm long.",
-            "Grill over high heat for 6-8 minutes, turning every 2 minutes until charred and cooked through.",
-            "Whisk tahini with lemon juice and 3-4 tbsp water until smooth and pourable. Season with salt.",
-            "Serve kofta with tahini sauce, fresh parsley, and warm pita bread."
-        ],
-        nutrition: { calories: "440 kcal", protein: "32g", carbs: "28g", fat: "22g", fiber: "2g", sodium: "520mg" },
-        tips: [
-            "Squeeze the grated onion through a cloth to remove excess moisture — this stops the kofta from falling apart.",
-            "Chill the shaped kofta for 30 minutes before grilling so they hold their shape better.",
-            "A squeeze of pomegranate molasses over the finished dish adds a great tangy depth."
-        ]
-    },
-    {
-        name: "Chicken Tikka Masala",
-        description: "Tender marinated chicken in a rich, aromatic tomato-cream curry sauce",
-        cuisine: "Indian",
-        difficulty: "Medium",
-        prepTime: 30,
-        cookTime: 35,
-        servings: 4,
-        rating: 4.9,
-        reviews: 412,
-        image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=800&q=80",
-        ingredients: [
-            "700g boneless chicken thighs, cubed",
-            "200ml plain yogurt",
-            "2 tsp garam masala",
-            "1 tsp turmeric",
-            "1 tsp ground cumin",
-            "4 garlic cloves, minced",
-            "1 tbsp fresh ginger, grated",
-            "400g canned tomatoes",
-            "200ml heavy cream",
-            "1 large onion, finely diced",
-            "2 tbsp butter",
-            "Fresh cilantro and rice to serve"
-        ],
-        steps: [
-            "Marinate chicken in yogurt, garam masala, turmeric, cumin, half the garlic and ginger, and salt. Refrigerate at least 2 hours.",
-            "Thread chicken onto skewers and grill or broil at high heat until charred, about 10 minutes. Set aside.",
-            "Melt butter in a deep skillet over medium heat. Saute onion until golden, 8-10 minutes. Add remaining garlic and ginger, cook 2 more minutes.",
-            "Add canned tomatoes and simmer 10 minutes until sauce thickens. Blend smooth with an immersion blender.",
-            "Stir in cream, return chicken to the pan, and simmer 5 more minutes. Garnish with cilantro and serve with basmati rice."
-        ],
-        nutrition: { calories: "610 kcal", protein: "42g", carbs: "18g", fat: "38g", fiber: "3g", sodium: "740mg" },
-        tips: [
-            "Longer marination means more tender, flavourful chicken — overnight makes a real difference.",
-            "Charring the chicken before adding to the sauce is what gives tikka masala its signature smoky flavour.",
-            "Balance richness with a squeeze of lemon just before serving."
-        ]
-    },
-    {
-        name: "Shakshuka",
-        description: "Eggs poached in a spiced tomato and pepper sauce — a North African classic",
-        cuisine: "North African",
-        difficulty: "Easy",
-        prepTime: 10,
-        cookTime: 25,
-        servings: 2,
-        rating: 4.6,
-        reviews: 301,
-        image: "https://images.unsplash.com/photo-1590412200988-a436970781fa?w=800&q=80",
-        ingredients: [
-            "6 large eggs",
-            "2 cans (800g) crushed tomatoes",
-            "2 red bell peppers, sliced",
-            "1 onion, diced",
-            "4 garlic cloves, minced",
-            "2 tsp cumin",
-            "1 tsp paprika",
-            "Half tsp chili flakes",
-            "Salt and pepper",
-            "Feta cheese, fresh parsley, crusty bread to serve"
-        ],
-        steps: [
-            "Heat olive oil in a wide oven-safe skillet over medium heat. Saute onion and peppers for 8 minutes until softened.",
-            "Add garlic, cumin, paprika, and chili flakes. Cook 1 minute until fragrant.",
-            "Pour in crushed tomatoes. Season and simmer 10 minutes, stirring occasionally, until sauce thickens.",
-            "Create 6 small wells in the sauce with a spoon. Crack one egg into each well. Cover and cook on low heat 6-8 minutes until whites are set but yolks are still runny.",
-            "Crumble feta over the top, scatter fresh parsley, and serve directly from the pan with crusty bread."
-        ],
-        nutrition: { calories: "310 kcal", protein: "18g", carbs: "22g", fat: "16g", fiber: "5g", sodium: "590mg" },
-        tips: [
-            "Keep the yolks runny — they mix into the sauce as you eat and create a richer experience.",
-            "A dollop of harissa stirred into the sauce adds a fiery depth if you like heat.",
-            "Serve straight from the skillet for a dramatic presentation your family will love."
-        ]
-    },
-    {
-        name: "Koshari",
-        description: "Egypt's beloved street food — lentils, rice, and pasta with spiced tomato sauce and crispy onions",
-        cuisine: "Egyptian",
-        difficulty: "Medium",
-        prepTime: 20,
-        cookTime: 45,
-        servings: 6,
-        rating: 4.7,
-        reviews: 158,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
-        ingredients: [
-            "200g brown lentils",
-            "200g long-grain rice",
-            "200g elbow pasta",
-            "400g canned tomatoes, crushed",
-            "2 large onions, thinly sliced",
-            "6 garlic cloves, minced",
-            "2 tsp cumin",
-            "1 tsp coriander",
-            "Half tsp cayenne",
-            "4 tbsp white vinegar",
-            "Oil for frying",
-            "Salt and pepper"
-        ],
-        steps: [
-            "Cook lentils in salted water until just tender, about 20 minutes. Drain. Cook pasta separately until al dente. Drain.",
-            "Fry sliced onions in oil over medium heat, stirring often, for 20-25 minutes until deep golden and crispy. Drain on paper towels.",
-            "In the onion oil, saute garlic 1 minute. Add tomatoes, cumin, coriander, cayenne, and vinegar. Simmer 15 minutes until thick. Season well.",
-            "Cook rice in the lentil water with a little oil and salt for about 18 minutes until fluffy.",
-            "Layer in bowls: rice and lentils, then pasta, then ladle tomato sauce over generously. Top with crispy onions."
-        ],
-        nutrition: { calories: "490 kcal", protein: "18g", carbs: "84g", fat: "10g", fiber: "12g", sodium: "410mg" },
-        tips: [
-            "The crispy onions are non-negotiable — make extra because everyone will want more.",
-            "Add a splash of white vinegar directly to your bowl for extra tang, like Cairenes do.",
-            "Koshari tastes even better the next day once all the flavors meld together."
-        ]
-    }
-];
+var contacts = [];
+var editingId = "";
+var photoData = "";
 
+window.onload = function () {
+  loadContacts();
+  renderAll();
+  setupEvents();
+};
 
-var currentIndex = 0;
-
-function getRandomIndex(current) {
-    var newIndex;
-    do {
-        newIndex = Math.floor(Math.random() * meals.length);
-    } while (newIndex === current);
-    return newIndex;
+function loadContacts() {
+  var saved = localStorage.getItem("contactHubData");
+  if (saved) {
+    contacts = JSON.parse(saved);
+  } else {
+    contacts = [];
+  }
 }
 
-function getTotalTime(meal) {
-    return meal.prepTime + meal.cookTime;
+function saveContacts() {
+  localStorage.setItem("contactHubData", JSON.stringify(contacts));
 }
 
-function displayMeal(index) {
-    var meal = meals[index];
-
-    document.getElementById("recipe-image").src = meal.image;
-    document.getElementById("recipe-image").alt = meal.name;
-    document.getElementById("recipe-name").textContent = meal.name;
-    document.getElementById("recipe-description").textContent = meal.description;
-    document.getElementById("difficulty-badge").textContent = meal.difficulty;
-    document.getElementById("category-badge").textContent = meal.cuisine;
-    document.getElementById("rating-average").textContent = meal.rating;
-    document.getElementById("rating-quantity").textContent = "(" + meal.reviews + " reviews)";
-    document.getElementById("prep-time-display").textContent = meal.prepTime + " min";
-    document.getElementById("cook-time-display").textContent = meal.cookTime + " min";
-    document.getElementById("servings-display").textContent = meal.servings + " people";
-
-    document.getElementById("calories-value").textContent = meal.nutrition.calories;
-    document.getElementById("protein-value").textContent = meal.nutrition.protein;
-    document.getElementById("carbs-value").textContent = meal.nutrition.carbs;
-    document.getElementById("fat-value").textContent = meal.nutrition.fat;
-    document.getElementById("fiber-value").textContent = meal.nutrition.fiber;
-    document.getElementById("sodium-value").textContent = meal.nutrition.sodium;
-
-    var warning = document.getElementById("time-warning");
-    if (getTotalTime(meal) > 45) {
-        warning.classList.add("show");
-    } else {
-        warning.classList.remove("show");
-    }
-
-    var ingList = document.getElementById("ingredients-list");
-    ingList.innerHTML = "";
-    for (var i = 0; i < meal.ingredients.length; i++) {
-        var li = document.createElement("li");
-        li.innerHTML = '<div class="ing-num">' + (i + 1) + '</div><span>' + meal.ingredients[i] + '</span>';
-        ingList.appendChild(li);
-    }
-
-    var stepList = document.getElementById("instructions-list");
-    stepList.innerHTML = "";
-    for (var i = 0; i < meal.steps.length; i++) {
-        var div = document.createElement("div");
-        div.className = "step-item";
-        div.innerHTML = '<div class="step-num">' + (i + 1) + '</div><p class="step-text">' + meal.steps[i] + '</p>';
-        stepList.appendChild(div);
-    }
-
-    var tipList = document.getElementById("tips-list");
-    tipList.innerHTML = "";
-    for (var i = 0; i < meal.tips.length; i++) {
-        var div = document.createElement("div");
-        div.className = "tip-item";
-        div.innerHTML = '<i class="fa-solid fa-check-circle"></i><p>' + meal.tips[i] + '</p>';
-        tipList.appendChild(div);
-    }
-
-    switchTab("ingredients");
+function makeId() {
+  var now = new Date();
+  return "contact_" + now.getTime();
 }
 
-function switchTab(tabName) {
-    var buttons = document.querySelectorAll(".tab-btn");
-    for (var i = 0; i < buttons.length; i++) {
-        if (buttons[i].getAttribute("data-tab") === tabName) {
-            buttons[i].classList.add("active");
-        } else {
-            buttons[i].classList.remove("active");
-        }
+function getInitials(name) {
+  var words = name.split(" ");
+  var initials = "";
+  var i;
+  for (i = 0; i < words.length; i++) {
+    if (words[i].length > 0 && initials.length < 2) {
+      initials = initials + words[i].charAt(0).toUpperCase();
     }
-    var panels = document.querySelectorAll(".tab-panel");
-    for (var i = 0; i < panels.length; i++) {
-        if (panels[i].id === tabName + "-tab") {
-            panels[i].classList.add("active");
-        } else {
-            panels[i].classList.remove("active");
-        }
-    }
+  }
+  if (initials === "") {
+    initials = "?";
+  }
+  return initials;
 }
 
-var tabButtons = document.querySelectorAll(".tab-btn");
-for (var i = 0; i < tabButtons.length; i++) {
-    tabButtons[i].addEventListener("click", function () {
-        switchTab(this.getAttribute("data-tab"));
+var avatarColors = ["avatar-blue", "avatar-violet", "avatar-emerald", "avatar-amber", "avatar-rose", "avatar-cyan"];
+
+function getAvatarColor(id) {
+  var sum = 0;
+  var i;
+  for (i = 0; i < id.length; i++) {
+    sum = sum + id.charCodeAt(i);
+  }
+  var index = sum % avatarColors.length;
+  return avatarColors[index];
+}
+
+function isValidName(name) {
+  var regex = /^[A-Za-z\u0600-\u06FF ]{2,50}$/;
+  return regex.test(name.trim());
+}
+
+function isValidPhone(phone) {
+  var regex = /^01[0125][0-9]{8}$/;
+  return regex.test(phone.trim());
+}
+
+function isValidEmail(email) {
+  if (email.trim() === "") {
+    return true;
+  }
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  return regex.test(email.trim());
+}
+
+function renderAll() {
+  renderStats();
+  renderContacts();
+  renderFavorites();
+  renderEmergency();
+}
+
+function renderStats() {
+  var total = contacts.length;
+  var favCount = 0;
+  var emgCount = 0;
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i].favorite === true) {
+      favCount = favCount + 1;
+    }
+    if (contacts[i].emergency === true) {
+      emgCount = emgCount + 1;
+    }
+  }
+  document.getElementById("totalCount").innerHTML = total;
+  document.getElementById("favCount").innerHTML = favCount;
+  document.getElementById("emgCount").innerHTML = emgCount;
+  document.getElementById("contactsSubtitle").innerHTML = "Manage and organize your " + total + " contacts";
+}
+
+function buildAvatarHtml(c, sizeClass) {
+  if (c.photo && c.photo !== "") {
+    return '<img src="' + c.photo + '" class="avatar-circle ' + sizeClass + '">';
+  }
+  var colorClass = getAvatarColor(c.id);
+  return '<div class="avatar-circle ' + sizeClass + ' ' + colorClass + '">' + getInitials(c.name) + '</div>';
+}
+
+function renderContacts() {
+  var grid = document.getElementById("contactsGrid");
+  var searchValue = document.getElementById("searchInput").value.toLowerCase();
+
+  var filtered = [];
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    var c = contacts[i];
+    var nameMatch = c.name.toLowerCase().indexOf(searchValue) !== -1;
+    var phoneMatch = c.phone.toLowerCase().indexOf(searchValue) !== -1;
+    var emailMatch = (c.email || "").toLowerCase().indexOf(searchValue) !== -1;
+    if (nameMatch || phoneMatch || emailMatch) {
+      filtered.push(c);
+    }
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML =
+      '<div class="empty-state">' +
+      '<div class="empty-icon-box"><i class="fa-solid fa-address-book"></i></div>' +
+      '<p class="empty-title">No contacts found</p>' +
+      '<p class="empty-sub">Click "Add Contact" to get started</p></div>';
+    return;
+  }
+
+  var html = "";
+  for (i = 0; i < filtered.length; i++) {
+    var c = filtered[i];
+    var avatarHtml = buildAvatarHtml(c, "avatar-lg");
+
+    var groupBadge = "";
+    if (c.group && c.group !== "") {
+      var groupLabel = c.group.charAt(0).toUpperCase() + c.group.slice(1);
+      groupBadge = '<span class="badge badge-group">' + groupLabel + '</span>';
+    }
+
+    var emergencyBadge = "";
+    if (c.emergency === true) {
+      emergencyBadge = '<span class="badge badge-emergency"><i class="fa-solid fa-heart-pulse" style="margin-right:.25rem;"></i>Emergency</span>';
+    }
+
+    var starClass = "fa-regular fa-star";
+    var starActive = "";
+    if (c.favorite === true) {
+      starClass = "fa-solid fa-star";
+      starActive = "active";
+    }
+
+    var emailBtnClass = "icon-action mail";
+    var emailHref = "mailto:" + c.email;
+    if (!c.email || c.email === "") {
+      emailBtnClass = "icon-action mail disabled";
+      emailHref = "#";
+    }
+
+    html += '<div class="contact-card">';
+    html += '<div class="card-top">';
+    html += '<div class="card-left">';
+    html += avatarHtml;
+    html += '<div style="min-width:0;">';
+    html += '<h3 class="card-name">' + c.name + '</h3>';
+    html += '<p class="card-phone">' + c.phone + '</p>';
+    html += '</div></div>';
+    html += '<button class="favBtn fav-btn ' + starActive + '" data-id="' + c.id + '"><i class="' + starClass + '"></i></button>';
+    html += '</div>';
+
+    if (c.email) {
+      html += '<p class="card-email"><i class="fa-solid fa-envelope" style="margin-right:.35rem;"></i>' + c.email + '</p>';
+    }
+
+    html += '<div class="card-badges">' + groupBadge + emergencyBadge + '</div>';
+
+    html += '<div class="card-bottom">';
+    html += '<div class="card-actions-left">';
+    html += '<a href="tel:' + c.phone + '" class="icon-action call"><i class="fa-solid fa-phone"></i></a>';
+    html += '<a href="' + emailHref + '" class="' + emailBtnClass + '"><i class="fa-solid fa-envelope"></i></a>';
+    html += '</div>';
+    html += '<div class="card-actions-right">';
+    html += '<button class="editBtn icon-action edit" data-id="' + c.id + '"><i class="fa-solid fa-pen"></i></button>';
+    html += '<button class="deleteBtn icon-action del" data-id="' + c.id + '"><i class="fa-solid fa-trash"></i></button>';
+    html += '</div></div>';
+    html += '</div>';
+  }
+
+  grid.innerHTML = html;
+  attachCardEvents();
+}
+
+function renderFavorites() {
+  var list = [];
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i].favorite === true) {
+      list.push(contacts[i]);
+    }
+  }
+  var html = buildSidebarHtml(list, "No favorites yet");
+  document.getElementById("favoritesList").innerHTML = html;
+  document.getElementById("favoritesListMobile").innerHTML = html;
+  attachSidebarEvents("favoritesList");
+  attachSidebarEvents("favoritesListMobile");
+}
+
+function renderEmergency() {
+  var list = [];
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i].emergency === true) {
+      list.push(contacts[i]);
+    }
+  }
+  var html = buildSidebarHtml(list, "No emergency contacts");
+  document.getElementById("emergencyList").innerHTML = html;
+  document.getElementById("emergencyListMobile").innerHTML = html;
+  attachSidebarEvents("emergencyList");
+  attachSidebarEvents("emergencyListMobile");
+}
+
+function buildSidebarHtml(list, emptyText) {
+  if (list.length === 0) {
+    return '<div class="side-empty"><p>' + emptyText + '</p></div>';
+  }
+  var html = "";
+  var i;
+  for (i = 0; i < list.length; i++) {
+    var c = list[i];
+    var avatarHtml = buildAvatarHtml(c, "avatar-sm");
+    html += '<div class="sidebarItem sidebar-item" data-id="' + c.id + '">';
+    html += avatarHtml;
+    html += '<div class="sidebar-item-info">';
+    html += '<p class="sidebar-item-name">' + c.name + '</p>';
+    html += '<p class="sidebar-item-phone">' + c.phone + '</p>';
+    html += '</div>';
+    html += '<a href="tel:' + c.phone + '" class="sidebar-item-call"><i class="fa-solid fa-phone"></i></a>';
+    html += '</div>';
+  }
+  return html;
+}
+
+function attachCardEvents() {
+  var editButtons = document.getElementsByClassName("editBtn");
+  var i;
+  for (i = 0; i < editButtons.length; i++) {
+    editButtons[i].onclick = function () {
+      openEditModal(this.getAttribute("data-id"));
+    };
+  }
+
+  var deleteButtons = document.getElementsByClassName("deleteBtn");
+  for (i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].onclick = function () {
+      confirmDelete(this.getAttribute("data-id"));
+    };
+  }
+
+  var favButtons = document.getElementsByClassName("favBtn");
+  for (i = 0; i < favButtons.length; i++) {
+    favButtons[i].onclick = function () {
+      toggleFavorite(this.getAttribute("data-id"));
+    };
+  }
+}
+
+function attachSidebarEvents(containerId) {
+  var container = document.getElementById(containerId);
+  var items = container.getElementsByClassName("sidebarItem");
+  var i;
+  for (i = 0; i < items.length; i++) {
+    items[i].onclick = function (event) {
+      if (event.target.closest("a")) {
+        return;
+      }
+      openEditModal(this.getAttribute("data-id"));
+    };
+  }
+}
+
+function setupEvents() {
+  document.getElementById("addContactBtn").onclick = function () {
+    openAddModal();
+  };
+  document.getElementById("closeModalBtn").onclick = function () {
+    closeModal();
+  };
+  document.getElementById("cancelModalBtn").onclick = function () {
+    closeModal();
+  };
+  document.getElementById("modalBackdrop").onclick = function () {
+    closeModal();
+  };
+  document.getElementById("contactForm").onsubmit = function (event) {
+    event.preventDefault();
+    saveContact();
+  };
+  document.getElementById("searchInput").oninput = function () {
+    renderContacts();
+  };
+  document.getElementById("avatarInput").onchange = function () {
+    handlePhotoUpload(this);
+  };
+}
+
+function openAddModal() {
+  editingId = "";
+  photoData = "";
+  document.getElementById("modalTitle").innerHTML = "Add New Contact";
+  document.getElementById("contactForm").reset();
+  document.getElementById("contactId").value = "";
+  clearErrors();
+  var preview = document.getElementById("avatarPreview");
+  preview.className = "avatar-circle avatar-xl avatar-blue";
+  preview.innerHTML = "?";
+  document.getElementById("contactModal").classList.add("open");
+}
+
+function openEditModal(id) {
+  var c = findContactById(id);
+  if (!c) {
+    return;
+  }
+  editingId = id;
+  photoData = c.photo || "";
+  document.getElementById("modalTitle").innerHTML = "Edit Contact";
+  document.getElementById("contactId").value = c.id;
+  document.getElementById("contactName").value = c.name;
+  document.getElementById("contactPhone").value = c.phone;
+  document.getElementById("contactEmail").value = c.email || "";
+  document.getElementById("contactAddress").value = c.address || "";
+  document.getElementById("contactGroup").value = c.group || "";
+  document.getElementById("contactNotes").value = c.notes || "";
+  document.getElementById("contactFavorite").checked = c.favorite === true;
+  document.getElementById("contactEmergency").checked = c.emergency === true;
+  clearErrors();
+
+  var preview = document.getElementById("avatarPreview");
+  if (c.photo && c.photo !== "") {
+    preview.className = "avatar-circle avatar-xl";
+    preview.innerHTML = '<img src="' + c.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
+  } else {
+    var colorClass = getAvatarColor(c.id);
+    preview.className = "avatar-circle avatar-xl " + colorClass;
+    preview.innerHTML = getInitials(c.name);
+  }
+  document.getElementById("contactModal").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("contactModal").classList.remove("open");
+}
+
+function handlePhotoUpload(input) {
+  if (input.files.length === 0) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    photoData = event.target.result;
+    var preview = document.getElementById("avatarPreview");
+    preview.className = "avatar-circle avatar-xl";
+    preview.innerHTML = '<img src="' + photoData + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function clearErrors() {
+  document.getElementById("contactNameError").classList.remove("show");
+  document.getElementById("contactPhoneError").classList.remove("show");
+  document.getElementById("contactEmailError").classList.remove("show");
+  document.getElementById("contactName").classList.remove("error");
+  document.getElementById("contactPhone").classList.remove("error");
+  document.getElementById("contactEmail").classList.remove("error");
+}
+
+function findContactById(id) {
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i].id === id) {
+      return contacts[i];
+    }
+  }
+  return null;
+}
+
+function findContactIndexById(id) {
+  var i;
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i].id === id) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function saveContact() {
+  clearErrors();
+
+  var name = document.getElementById("contactName").value;
+  var phone = document.getElementById("contactPhone").value;
+  var email = document.getElementById("contactEmail").value;
+
+  var valid = true;
+
+  if (!isValidName(name)) {
+    document.getElementById("contactNameError").classList.add("show");
+    document.getElementById("contactName").classList.add("error");
+    valid = false;
+  }
+
+  if (!isValidPhone(phone)) {
+    document.getElementById("contactPhoneError").classList.add("show");
+    document.getElementById("contactPhone").classList.add("error");
+    valid = false;
+  }
+
+  if (!isValidEmail(email)) {
+    document.getElementById("contactEmailError").classList.add("show");
+    document.getElementById("contactEmail").classList.add("error");
+    valid = false;
+  }
+
+  if (valid === false) {
+    return;
+  }
+
+  var contactData = {
+    name: name.trim(),
+    phone: phone.trim(),
+    email: email.trim(),
+    address: document.getElementById("contactAddress").value.trim(),
+    group: document.getElementById("contactGroup").value,
+    notes: document.getElementById("contactNotes").value.trim(),
+    favorite: document.getElementById("contactFavorite").checked,
+    emergency: document.getElementById("contactEmergency").checked,
+    photo: photoData
+  };
+
+  if (editingId === "") {
+    contactData.id = makeId();
+    contacts.push(contactData);
+    saveContacts();
+    closeModal();
+    renderAll();
+    Swal.fire({
+      icon: "success",
+      title: "Contact added!",
+      text: contactData.name + " was added to your contacts.",
+      confirmButtonColor: "#7c3aed",
+      timer: 2200,
+      timerProgressBar: true
     });
+  } else {
+    var index = findContactIndexById(editingId);
+    if (index !== -1) {
+      contactData.id = editingId;
+      contacts[index] = contactData;
+      saveContacts();
+      closeModal();
+      renderAll();
+      Swal.fire({
+        icon: "success",
+        title: "Contact updated!",
+        text: contactData.name + "'s info has been saved.",
+        confirmButtonColor: "#7c3aed",
+        timer: 2200,
+        timerProgressBar: true
+      });
+    }
+  }
 }
 
-document.getElementById("try-another-btn").addEventListener("click", function () {
-    currentIndex = getRandomIndex(currentIndex);
-    displayMeal(currentIndex);
-});
+function confirmDelete(id) {
+  var c = findContactById(id);
+  if (!c) {
+    return;
+  }
+  Swal.fire({
+    icon: "warning",
+    title: "Are you sure?",
+    text: "Do you really want to delete " + c.name + "? This can't be undone.",
+    showCancelButton: true,
+    confirmButtonText: "Delete",
+    cancelButtonText: "Cancel",
+    confirmButtonColor: "#e11d48",
+    cancelButtonColor: "#6b7280",
+    reverseButtons: true
+  }).then(function (result) {
+    if (result.isConfirmed) {
+      deleteContact(id);
+    }
+  });
+}
 
-displayMeal(currentIndex);
+function deleteContact(id) {
+  var index = findContactIndexById(id);
+  if (index === -1) {
+    return;
+  }
+  var name = contacts[index].name;
+  contacts.splice(index, 1);
+  saveContacts();
+  renderAll();
+  Swal.fire({
+    icon: "success",
+    title: "Deleted!",
+    text: name + " has been removed.",
+    confirmButtonColor: "#7c3aed",
+    timer: 1800,
+    timerProgressBar: true
+  });
+}
+
+function toggleFavorite(id) {
+  var index = findContactIndexById(id);
+  if (index === -1) {
+    return;
+  }
+  if (contacts[index].favorite === true) {
+    contacts[index].favorite = false;
+  } else {
+    contacts[index].favorite = true;
+  }
+  saveContacts();
+  renderAll();
+}
